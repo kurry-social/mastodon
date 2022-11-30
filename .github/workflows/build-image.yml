@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'kurry-*'
+      - 'kurry-nightly'
     tags:
       - '*'
   pull_request:
@@ -47,14 +47,13 @@ jobs:
         id: meta
         with:
           images: |
-            tootsuite/mastodon
-            ghcr.io/mastodon/mastodon
+            kurrysocial/mastodon
+            ghcr.io/kurry-social/mastodon
           flavor: |
             latest=auto
           tags: |
-            type=edge,branch=main
-            type=pep440,pattern={{raw}}
-            type=pep440,pattern=v{{major}}.{{minor}}
+            type=edge,branch=kurry-nightly
+            type=semver,pattern={{raw}}
             type=ref,event=pr
 
       - uses: docker/build-push-action@v4
