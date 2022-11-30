@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'main'
+      - 'kurry-*'
     tags:
       - '*'
   pull_request:
