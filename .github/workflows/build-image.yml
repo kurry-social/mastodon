@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'kurry-*'
+      - 'kurry-nightly'
     tags:
       - '*'
   pull_request:
@@ -28,11 +28,11 @@ jobs:
       - uses: docker/metadata-action@v4
         id: meta
         with:
-          images: tootsuite/mastodon
+          images: kurrysocial/mastodon
           flavor: |
             latest=auto
           tags: |
-            type=edge,branch=main
+            type=edge,branch=kurry-nightly
             type=pep440,pattern={{raw}}
             type=pep440,pattern=v{{major}}.{{minor}}
             type=ref,event=pr
@@ -42,5 +42,5 @@ jobs:
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=tootsuite/mastodon:edge
+          cache-from: type=registry,ref=kurrysocial/mastodon:edge
           cache-to: type=inline
