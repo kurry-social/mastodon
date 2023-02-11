@@ -62,8 +62,13 @@ jobs:
           platforms: linux/amd64
           provenance: false
           builder: ${{ steps.buildx.outputs.name }}
-          push: ${{ github.repository == 'mastodon/mastodon' && github.event_name != 'pull_request' }}
+          push: ${{ github.repository == 'kurry-social/mastodon' && github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            GITHUB_REPOSITORY=${{ github.repository }}
+            # TODO: Find nice way to replace this with variable
+            SOURCE_BASE_URL=https://github.com/kurry-social/mastodon
+            SOURCE_TAG=${{ github.ref_name }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
