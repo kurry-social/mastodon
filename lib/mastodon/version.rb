@@ -17,11 +17,11 @@ module Mastodon
     end
 
     def flags
-      ''
+      '+'
     end
 
     def suffix
-      'kurry-1.2'
+      'kurry-1.6'
     end
 
     def to_a
