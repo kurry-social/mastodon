@@ -1599,7 +1599,6 @@ en:
     default: Mastodon (Dark)
     mastodon-light: Mastodon (Light)
     default-bluebird: BlueBird (Dark)
-    mastodon-light-bluebird: BlueBird (Light)
   time:
     formats:
       default: "%b %d, %Y, %H:%M"
