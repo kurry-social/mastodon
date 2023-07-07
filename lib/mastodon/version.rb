@@ -21,7 +21,7 @@ module Mastodon
     end
 
     def suffix
-      'kurry-1.6'
+      'kurry-1.7'
     end
 
     def to_a
